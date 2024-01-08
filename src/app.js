@@ -17,7 +17,7 @@ app.get('/tours', (req, res) => {
     status: 200,
     message: 'Success',
    // data: tourDetails,   
-     [
+    data: [
     {
       "id": 1,
       "name": "Tour 1",
