@@ -13,29 +13,21 @@ const writeTourDataToFile = () => {
 
 app.get('/tours', (req, res) => {
   //write a code here to get all the tours from tours.json
-   res.status(200).json({
-    status: 200,
-    message: 'Success',
-   // data: tourDetails,   
-    data: [
-    {
-      "id": 1,
-      "name": "Tour 1",
-      "description": "Description of Tour 1",
-      "duration": "3 days",
-      "price": 100
-    },
-    {
-      "id": 2,
-      "name": "Tour 2",
-      "description": "Description of Tour 2",
-      "duration": "5 days",
-      "price": 200
-    },
-    // ... other tours
-  ]
-
-  });
+  try {
+    const tourData = JSON.parse(fs.readFileSync(`${__dirname}/data/tours.json`, 'utf8'));
+    res.status(200).json({
+      status: 200,
+      message: 'Success',
+      data: tourData,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      message: 'Internal Server Error',
+      error: error.message,
+    });
+  }
+  
 });
 
 app.post('/tours', (req, res) => {
