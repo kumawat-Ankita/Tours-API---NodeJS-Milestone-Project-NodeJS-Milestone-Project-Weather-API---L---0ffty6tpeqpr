@@ -14,9 +14,10 @@ const writeTourDataToFile = () => {
 app.get('/tours', (req, res) => {
   //write a code here to get all the tours from tours.json
    res.status(200).json({
-    status: 200,
+    (status: 200,
     message: 'Success',
     data: tourDetails,
+     )
   });
 });
 
@@ -63,7 +64,7 @@ app.put('/tours/:id', (req, res) => {
     writeTourDataToFile();
 
     res.status(200).json({
-      status: 200,
+     // status: 200,
       message: 'Tour updated successfully',
     });
   } else {
