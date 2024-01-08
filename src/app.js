@@ -7,6 +7,10 @@ app.use(express.json());
 
 const tourDetails = JSON.parse(fs.readFileSync(`${__dirname}/data/tours.json`));
 
+const writeTourDataToFile = () => {
+  fs.writeFileSync(`${__dirname}/data/tours.json`, JSON.stringify(tourDetails, null, 2), 'utf8');
+};
+
 app.get('/tours', (req, res) => {
   //write a code here to get all the tours from tours.json
    res.status(200).json({
@@ -47,8 +51,6 @@ app.post('/tours', (req, res) => {
 app.put('/tours/:id', (req, res) => {
   const tourId = parseInt(req.params.id);
   const updatedTour = req.body;
-const tourId = parseInt(req.params.id);
-  const updatedTour = req.body;
 
   // Find the index of the tour to update
   const tourIndex = tourDetails.findIndex((tour) => tour.id === tourId);
@@ -76,7 +78,7 @@ const tourId = parseInt(req.params.id);
 app.delete('/tours/:id', (req, res) => {
   const tourId = parseInt(req.params.id);
   //Write a code here for deleting a tour from data/tours.json
-  const tourId = parseInt(req.params.id);
+ 
 
   // Find the index of the tour to delete
   const tourIndex = tourDetails.findIndex((tour) => tour.id === tourId);
