@@ -21,8 +21,7 @@ app.post('/tours', (req, res) => {
   //Write a code here for creating new tour from data/tours.json
   //For creating new id use this logic
   // const newId = tourDetails[tourDetails.length - 1].id + 1;
-  const { name, description, duration, price } = req.body;
-
+  
   // Create new tour object
   const newId = tourDetails.length > 0 ? tourDetails[tourDetails.length - 1].id + 1 : 1;
   const newTour = {
