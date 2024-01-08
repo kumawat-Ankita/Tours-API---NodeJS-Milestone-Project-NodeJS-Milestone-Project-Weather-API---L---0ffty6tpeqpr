@@ -43,7 +43,7 @@ app.post('/tours', (req, res) => {
   writeTourDataToFile();
 
   res.status(200).json({
-    status: 200,
+   // status: 200,
     message: 'Tour added successfully',
   });
 });
@@ -68,7 +68,7 @@ app.put('/tours/:id', (req, res) => {
     });
   } else {
     res.status(404).json({
-      status: 404,
+    //  status: 404,
       message: 'Tour not found',
     });
   }
@@ -91,12 +91,12 @@ app.delete('/tours/:id', (req, res) => {
     writeTourDataToFile();
 
     res.status(200).json({
-      status: 200,
+     // status: 200,
       message: 'Tour deleted successfully',
     });
   } else {
     res.status(404).json({
-      status: 404,
+     // status: 404,
       message: 'Tour not found',
     });
   }
