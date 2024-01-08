@@ -16,7 +16,25 @@ app.get('/tours', (req, res) => {
    res.status(200).json({
     status: 200,
     message: 'Success',
-    data: tourDetails,   
+   // data: tourDetails,   
+     [
+    {
+      "id": 1,
+      "name": "Tour 1",
+      "description": "Description of Tour 1",
+      "duration": "3 days",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "Tour 2",
+      "description": "Description of Tour 2",
+      "duration": "5 days",
+      "price": 200
+    },
+    // ... other tours
+  ]
+}
   });
 });
 
