@@ -34,7 +34,7 @@ app.get('/tours', (req, res) => {
     },
     // ... other tours
   ]
-}
+
   });
 });
 
